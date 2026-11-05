@@ -1,8 +1,7 @@
 (function () {
-  const hits = Array.from(document.querySelectorAll(".floor-hit[data-floor]"));
-  const tabs = hits.filter((el) => el.getAttribute("role") === "tab");
+  const bands = Array.from(document.querySelectorAll(".band[data-floor]"));
+  const tabs = Array.from(document.querySelectorAll(".callout"));
   const panels = Array.from(document.querySelectorAll(".panel"));
-  const labels = Array.from(document.querySelectorAll(".label"));
 
   if (!tabs.length) return;
 
@@ -14,12 +13,8 @@
       tab.tabIndex = on ? 0 : -1;
     });
 
-    hits.forEach((hit) => {
-      hit.classList.toggle("is-on", hit.dataset.floor === id);
-    });
-
-    labels.forEach((label) => {
-      label.classList.toggle("is-on", label.dataset.floor === id);
+    bands.forEach((band) => {
+      band.classList.toggle("is-on", band.dataset.floor === id);
     });
 
     panels.forEach((panel) => {
@@ -29,17 +24,13 @@
     });
   }
 
-  function onActivate(event) {
-    const floor = event.currentTarget.dataset.floor;
-    if (!floor) return;
-    showFloor(floor);
-  }
-
-  hits.forEach((hit) => {
-    hit.addEventListener("click", onActivate);
+  bands.forEach((band) => {
+    band.addEventListener("click", () => showFloor(band.dataset.floor));
   });
 
   tabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => showFloor(tab.dataset.floor));
+
     tab.addEventListener("keydown", (event) => {
       let next = null;
       if (event.key === "ArrowDown" || event.key === "ArrowRight") {
@@ -50,10 +41,6 @@
         next = tabs[0];
       } else if (event.key === "End") {
         next = tabs[tabs.length - 1];
-      } else if (event.key === "Enter" || event.key === " ") {
-        event.preventDefault();
-        showFloor(tab.dataset.floor);
-        return;
       }
       if (!next) return;
       event.preventDefault();
@@ -62,6 +49,5 @@
     });
   });
 
-  labels.forEach((label) => label.classList.toggle("is-on", label.dataset.floor === "1"));
-  showFloor("1");
+  showFloor("3");
 })();

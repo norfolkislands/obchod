@@ -26,162 +26,66 @@
       <p>Klikni na farebné poschodie.</p>
     </section>
 
-    <section class="model" id="veza" aria-label="Model veže">
-      <div class="model-frame">
-        <svg
-          class="tower-svg"
-          viewBox="0 0 640 620"
-          role="img"
-          aria-labelledby="tower-title"
-        >
-          <title id="tower-title">Veža moderný obchod — klikateľné poschodia</title>
+    <section class="model" id="veza">
+      <div class="roll" aria-label="Model veže">
+        <svg class="roll-svg" viewBox="0 0 420 560" role="img" aria-labelledby="roll-title">
+          <title id="roll-title">Klikateľná veža</title>
 
-          <!-- soft ground -->
-          <ellipse cx="250" cy="575" rx="168" ry="22" fill="rgba(0,0,0,0.08)" />
+          <ellipse cx="210" cy="520" rx="150" ry="18" fill="rgba(0,0,0,0.1)" />
 
-          <!-- floor bodies (side of cylinder) -->
-          <g class="floors" role="tablist" aria-label="Poschodia veže">
-            <!-- 1 bottom -->
-            <path
-              class="floor-hit is-on"
-              data-floor="1"
-              role="tab"
-              tabindex="0"
-              aria-selected="true"
-              aria-controls="panel-1"
-              id="tab-1"
-              d="M82 470 C82 505 157 530 250 530 C343 530 418 505 418 470 L418 420 C418 455 343 480 250 480 C157 480 82 455 82 420 Z"
-              fill="#2c3340"
-            />
-            <!-- 2 -->
-            <path
-              class="floor-hit"
-              data-floor="2"
-              role="tab"
-              tabindex="-1"
-              aria-selected="false"
-              aria-controls="panel-2"
-              id="tab-2"
-              d="M82 420 C82 455 157 480 250 480 C343 480 418 455 418 420 L418 360 C418 395 343 420 250 420 C157 420 82 395 82 360 Z"
-              fill="#9aa3ad"
-            />
-            <!-- 3 -->
-            <path
-              class="floor-hit"
-              data-floor="3"
-              role="tab"
-              tabindex="-1"
-              aria-selected="false"
-              aria-controls="panel-3"
-              id="tab-3"
-              d="M82 360 C82 395 157 420 250 420 C343 420 418 395 418 360 L418 300 C418 335 343 360 250 360 C157 360 82 335 82 300 Z"
-              fill="#6ea0c9"
-            />
-            <!-- 4 -->
-            <path
-              class="floor-hit"
-              data-floor="4"
-              role="tab"
-              tabindex="-1"
-              aria-selected="false"
-              aria-controls="panel-4"
-              id="tab-4"
-              d="M82 300 C82 335 157 360 250 360 C343 360 418 335 418 300 L418 240 C418 275 343 300 250 300 C157 300 82 275 82 240 Z"
-              fill="#e6c84d"
-            />
-            <!-- 5 top -->
-            <path
-              class="floor-hit"
-              data-floor="5"
-              role="tab"
-              tabindex="-1"
-              aria-selected="false"
-              aria-controls="panel-5"
-              id="tab-5"
-              d="M82 240 C82 275 157 300 250 300 C343 300 418 275 418 240 L418 175 C418 210 343 235 250 235 C157 235 82 210 82 175 Z"
-              fill="#e89a7a"
-            />
-            <!-- roof -->
-            <path
-              class="floor-hit"
-              data-floor="roof"
-              role="tab"
-              tabindex="-1"
-              aria-selected="false"
-              aria-controls="panel-roof"
-              id="tab-roof"
-              d="M82 175 C82 210 157 235 250 235 C343 235 418 210 418 175 L418 125 C418 160 343 185 250 185 C157 185 82 160 82 125 Z"
-              fill="#7f9f5f"
-            />
+          <!-- stacked bands: bottom → top -->
+          <g class="bands">
+            <path class="band" data-floor="1" d="M60 430 V380 H360 V430 C360 462 292 488 210 488 C128 488 60 462 60 430 Z" fill="#2a3140" />
+            <path class="band" data-floor="2" d="M60 380 V320 H360 V380 C360 412 292 438 210 438 C128 438 60 412 60 380 Z" fill="#96a0aa" />
+            <path class="band" data-floor="3" d="M60 320 V260 H360 V320 C360 352 292 378 210 378 C128 378 60 352 60 320 Z" fill="#5f9bc8" />
+            <path class="band" data-floor="4" d="M60 260 V200 H360 V260 C360 292 292 318 210 318 C128 318 60 292 60 260 Z" fill="#e2c043" />
+            <path class="band" data-floor="5" d="M60 200 V140 H360 V200 C360 232 292 258 210 258 C128 258 60 232 60 200 Z" fill="#e39274" />
+            <path class="band" data-floor="roof" d="M60 140 V95 H360 V140 C360 172 292 198 210 198 C128 198 60 172 60 140 Z" fill="#6f9458" />
           </g>
 
-          <!-- rim ellipses / seams -->
-          <g fill="none" stroke="#111" stroke-width="5" stroke-linejoin="round" pointer-events="none">
-            <ellipse cx="250" cy="530" rx="168" ry="60" />
-            <path d="M82 470 C82 505 157 530 250 530 C343 530 418 505 418 470" />
-            <path d="M82 420 C82 455 157 480 250 480 C343 480 418 455 418 420" />
-            <path d="M82 360 C82 395 157 420 250 420 C343 420 418 395 418 360" />
-            <path d="M82 300 C82 335 157 360 250 360 C343 360 418 335 418 300" />
-            <path d="M82 240 C82 275 157 300 250 300 C343 300 418 275 418 240" />
-            <path d="M82 175 C82 210 157 235 250 235 C343 235 418 210 418 175" />
-            <path d="M82 125 C82 160 157 185 250 185 C343 185 418 160 418 125" />
-            <!-- outer sides -->
-            <path d="M82 125 L82 470" />
-            <path d="M418 125 L418 470" />
+          <!-- outlines -->
+          <g fill="none" stroke="#111" stroke-width="5" pointer-events="none">
+            <path d="M60 95 V430" />
+            <path d="M360 95 V430" />
+            <path d="M60 430 C60 462 128 488 210 488 C292 488 360 462 360 430" />
+            <path d="M60 380 C60 412 128 438 210 438 C292 438 360 412 360 380" />
+            <path d="M60 320 C60 352 128 378 210 378 C292 378 360 352 360 320" />
+            <path d="M60 260 C60 292 128 318 210 318 C292 318 360 292 360 260" />
+            <path d="M60 200 C60 232 128 258 210 258 C292 258 360 232 360 200" />
+            <path d="M60 140 C60 172 128 198 210 198 C292 198 360 172 360 140" />
+            <ellipse cx="210" cy="95" rx="150" ry="48" />
           </g>
 
-          <!-- top disc + hole -->
-          <ellipse cx="250" cy="125" rx="168" ry="60" fill="#8fb06d" stroke="#111" stroke-width="5" />
-          <ellipse cx="250" cy="125" rx="58" ry="22" fill="#1a1f1c" stroke="#111" stroke-width="4" />
-          <!-- inner tube hint -->
-          <ellipse cx="250" cy="132" rx="48" ry="16" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" />
-
-          <!-- clickable top hole/roof overlay already on roof band; add roof button on top ellipse too -->
-          <ellipse
-            class="floor-hit roof-cap"
-            data-floor="roof"
-            cx="250"
-            cy="125"
-            rx="168"
-            ry="60"
-            fill="transparent"
-            tabindex="-1"
-            role="presentation"
-          />
-
-          <!-- labels -->
-          <g class="labels" font-family="Bricolage Grotesque, sans-serif" font-weight="800">
-            <g class="label" data-floor="roof">
-              <path d="M410 145 L470 110 L560 110" fill="none" stroke="#111" stroke-width="2.5" />
-              <text x="568" y="115" font-size="20">Strešná záhrada</text>
-            </g>
-            <g class="label" data-floor="5">
-              <path d="M415 210 L475 200 L560 200" fill="none" stroke="#111" stroke-width="2.5" />
-              <text x="568" y="205" font-size="20">Mačacie kafé</text>
-            </g>
-            <g class="label" data-floor="4">
-              <path d="M415 275 L475 275 L560 275" fill="none" stroke="#111" stroke-width="2.5" />
-              <text x="568" y="280" font-size="20">Potraviny</text>
-            </g>
-            <g class="label" data-floor="3">
-              <path d="M415 340 L475 350 L560 350" fill="none" stroke="#111" stroke-width="2.5" />
-              <text x="568" y="355" font-size="20">Oblečenie</text>
-            </g>
-            <g class="label" data-floor="2">
-              <path d="M415 400 L475 420 L560 420" fill="none" stroke="#111" stroke-width="2.5" />
-              <text x="568" y="425" font-size="20">Fitko · kino</text>
-            </g>
-            <g class="label" data-floor="1">
-              <path d="M415 480 L475 505 L560 505" fill="none" stroke="#111" stroke-width="2.5" />
-              <text x="568" y="510" font-size="20">Bar · kasíno</text>
-            </g>
-          </g>
+          <!-- top lid + hole -->
+          <ellipse class="band lid" data-floor="roof" cx="210" cy="95" rx="150" ry="48" fill="#81a86a" stroke="#111" stroke-width="5" />
+          <ellipse cx="210" cy="95" rx="52" ry="18" fill="#141814" stroke="#111" stroke-width="4" pointer-events="none" />
         </svg>
+
+        <div class="callouts" role="tablist" aria-label="Poschodia">
+          <button type="button" class="callout" role="tab" data-floor="roof" aria-selected="false" aria-controls="panel-roof" id="tab-roof" style="--y: 8%; --c:#81a86a">
+            <span class="dot"></span>Strešná záhrada
+          </button>
+          <button type="button" class="callout" role="tab" data-floor="5" aria-selected="false" aria-controls="panel-5" id="tab-5" style="--y: 24%; --c:#e39274">
+            <span class="dot"></span>Mačacie kafé
+          </button>
+          <button type="button" class="callout" role="tab" data-floor="4" aria-selected="false" aria-controls="panel-4" id="tab-4" style="--y: 38%; --c:#e2c043">
+            <span class="dot"></span>Potraviny
+          </button>
+          <button type="button" class="callout is-on" role="tab" data-floor="3" aria-selected="true" aria-controls="panel-3" id="tab-3" style="--y: 52%; --c:#5f9bc8">
+            <span class="dot"></span>Oblečenie
+          </button>
+          <button type="button" class="callout" role="tab" data-floor="2" aria-selected="false" aria-controls="panel-2" id="tab-2" style="--y: 66%; --c:#96a0aa">
+            <span class="dot"></span>Fitko · kino
+          </button>
+          <button type="button" class="callout" role="tab" data-floor="1" aria-selected="false" aria-controls="panel-1" id="tab-1" style="--y: 82%; --c:#2a3140">
+            <span class="dot"></span>Bar · kasíno
+          </button>
+        </div>
       </div>
 
       <div class="detail" aria-live="polite">
         <article class="panel" id="panel-roof" role="tabpanel" aria-labelledby="tab-roof" hidden>
-          <p class="num" style="--c:#7f9f5f">Strecha</p>
+          <p class="num" style="--c:#81a86a">Strecha</p>
           <h2>Strešná záhrada</h2>
           <p class="txt">Zeleň nad vežou. Oddych, bylinky, pohľad do átria.</p>
           <ul>
@@ -192,7 +96,7 @@
         </article>
 
         <article class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
-          <p class="num" style="--c:#e89a7a">05</p>
+          <p class="num" style="--c:#e39274">05</p>
           <h2>Mačacie kafé &amp; reštaurácie</h2>
           <p class="txt">Horné poschodie na stretnutie — mačky, jedlo, ľudia.</p>
           <ul>
@@ -203,7 +107,7 @@
         </article>
 
         <article class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
-          <p class="num" style="--c:#e6c84d">04</p>
+          <p class="num" style="--c:#e2c043">04</p>
           <h2>Potraviny</h2>
           <p class="txt">Market dookola átria. Čerstvé veci, rýchle vyzdvihnutie.</p>
           <ul>
@@ -213,8 +117,8 @@
           </ul>
         </article>
 
-        <article class="panel" id="panel-3" role="tabpanel" aria-labelledby="tab-3" hidden>
-          <p class="num" style="--c:#6ea0c9">03</p>
+        <article class="panel is-on" id="panel-3" role="tabpanel" aria-labelledby="tab-3">
+          <p class="num" style="--c:#5f9bc8">03</p>
           <h2>Oblečenie</h2>
           <p class="txt">Móda v kruhu. Skúšačky, topánky, doplnky.</p>
           <ul>
@@ -225,7 +129,7 @@
         </article>
 
         <article class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden>
-          <p class="num" style="--c:#9aa3ad">02</p>
+          <p class="num" style="--c:#96a0aa">02</p>
           <h2>Fitko + kino/aula</h2>
           <p class="txt">Pohyb a 2v1 sála — cez deň prednášky, večer film.</p>
           <ul>
@@ -235,8 +139,8 @@
           </ul>
         </article>
 
-        <article class="panel is-on" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
-          <p class="num" style="--c:#2c3340">01</p>
+        <article class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+          <p class="num" style="--c:#2a3140">01</p>
           <h2>Bar &amp; kasíno</h2>
           <p class="txt">Spodok veže ožíva večer. Svetlá dole, diera hore.</p>
           <ul>
