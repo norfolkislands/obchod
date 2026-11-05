@@ -1,21 +1,35 @@
 (function () {
-  const tabs = Array.from(document.querySelectorAll(".tower-level"));
-  const panels = Array.from(document.querySelectorAll(".floor-panel"));
+  const tabs = Array.from(document.querySelectorAll(".rail-btn"));
+  const panels = Array.from(document.querySelectorAll(".panel"));
+  const rings = {
+    roof: document.querySelector(".r-roof"),
+    5: document.querySelector(".r5"),
+    4: document.querySelector(".r4"),
+    3: document.querySelector(".r3"),
+    2: document.querySelector(".r2"),
+    1: document.querySelector(".r1"),
+  };
 
   if (!tabs.length) return;
 
   function showFloor(id) {
     tabs.forEach((tab) => {
-      const active = tab.dataset.floor === id;
-      tab.classList.toggle("is-active", active);
-      tab.setAttribute("aria-selected", active ? "true" : "false");
-      tab.tabIndex = active ? 0 : -1;
+      const on = tab.dataset.floor === id;
+      tab.classList.toggle("is-on", on);
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.tabIndex = on ? 0 : -1;
     });
 
     panels.forEach((panel) => {
-      const active = panel.id === `panel-${id}`;
-      panel.classList.toggle("is-active", active);
-      panel.hidden = !active;
+      const on = panel.id === `panel-${id}`;
+      panel.classList.toggle("is-on", on);
+      panel.hidden = !on;
+    });
+
+    Object.entries(rings).forEach(([key, el]) => {
+      if (!el) return;
+      el.style.transform = key === String(id) ? "scaleX(1.06)" : "scaleX(1)";
+      el.style.filter = key === String(id) ? "brightness(1.08)" : "none";
     });
   }
 
@@ -33,12 +47,12 @@
       } else if (event.key === "End") {
         next = tabs[tabs.length - 1];
       }
-
-      if (next) {
-        event.preventDefault();
-        next.focus();
-        showFloor(next.dataset.floor);
-      }
+      if (!next) return;
+      event.preventDefault();
+      next.focus();
+      showFloor(next.dataset.floor);
     });
   });
+
+  showFloor("3");
 })();

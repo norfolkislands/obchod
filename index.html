@@ -6,324 +6,148 @@
     <title>moderný obchod</title>
     <meta
       name="description"
-      content="Obchod budúcnosti — päťposchodová veža s átriom. Projekt do súťaže Obchod budúcnosti."
+      content="Päťposchodová veža s dierou v strede — projekt Obchod budúcnosti."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="page">
-      <header class="site-header">
-        <p class="brand-mark">moderný obchod</p>
-        <nav class="nav" aria-label="Hlavná navigácia">
-          <a href="#veza">Veža</a>
-          <a href="#maketa">Maketa</a>
-          <a href="#karta">Projekt</a>
-        </nav>
-      </header>
+    <header class="top">
+      <p class="logo">moderný obchod</p>
+    </header>
 
-      <main>
-        <section class="hero" aria-labelledby="hero-title">
-          <p class="eyebrow">Obchod budúcnosti</p>
-          <h1 id="hero-title">Nákupné centrum v tvare rolky.</h1>
-          <p class="lede">
-            Päť poschodí okolo otvoreného átria. Dole zábava, vyššie nákup,
-            hore zážitok a strešná záhrada.
-          </p>
-        </section>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>Rolka.<br />Päť poschodí.<br />Diera v strede.</h1>
+        <p>
+          Nákupné centrum ako veža s átriom. Dole bar a kasíno, vyššie nákup,
+          hore MačKafé a na streche záhrada.
+        </p>
+      </div>
 
-        <section id="veza" class="floors" aria-labelledby="floors-title">
-          <div class="section-head">
-            <h2 id="floors-title">Prejdi poschodiami</h2>
-            <p>Klikni na poschodie vo veži alebo v zozname.</p>
-          </div>
+      <div class="hero-build" aria-hidden="true">
+        <div class="core"></div>
+        <div class="stack">
+          <span class="ring r-roof"></span>
+          <span class="ring r5"></span>
+          <span class="ring r4"></span>
+          <span class="ring r3"></span>
+          <span class="ring r2"></span>
+          <span class="ring r1"></span>
+        </div>
+      </div>
+    </section>
 
-          <div class="floors-layout">
-            <div class="tower" role="tablist" aria-label="Poschodia veže">
-              <button
-                class="tower-level"
-                type="button"
-                role="tab"
-                id="tab-roof"
-                aria-selected="false"
-                aria-controls="panel-roof"
-                data-floor="roof"
-              >
-                <span class="tower-ring" aria-hidden="true"></span>
-                <span class="tower-label">strecha</span>
-              </button>
-              <button
-                class="tower-level"
-                type="button"
-                role="tab"
-                id="tab-5"
-                aria-selected="false"
-                aria-controls="panel-5"
-                data-floor="5"
-              >
-                <span class="tower-ring" aria-hidden="true"></span>
-                <span class="tower-label">5</span>
-              </button>
-              <button
-                class="tower-level"
-                type="button"
-                role="tab"
-                id="tab-4"
-                aria-selected="false"
-                aria-controls="panel-4"
-                data-floor="4"
-              >
-                <span class="tower-ring" aria-hidden="true"></span>
-                <span class="tower-label">4</span>
-              </button>
-              <button
-                class="tower-level is-active"
-                type="button"
-                role="tab"
-                id="tab-3"
-                aria-selected="true"
-                aria-controls="panel-3"
-                data-floor="3"
-              >
-                <span class="tower-ring" aria-hidden="true"></span>
-                <span class="tower-label">3</span>
-              </button>
-              <button
-                class="tower-level"
-                type="button"
-                role="tab"
-                id="tab-2"
-                aria-selected="false"
-                aria-controls="panel-2"
-                data-floor="2"
-              >
-                <span class="tower-ring" aria-hidden="true"></span>
-                <span class="tower-label">2</span>
-              </button>
-              <button
-                class="tower-level"
-                type="button"
-                role="tab"
-                id="tab-1"
-                aria-selected="false"
-                aria-controls="panel-1"
-                data-floor="1"
-              >
-                <span class="tower-ring" aria-hidden="true"></span>
-                <span class="tower-label">1</span>
-              </button>
-            </div>
+    <section class="explore" id="veza">
+      <div class="explore-rail" role="tablist" aria-label="Poschodia">
+        <button type="button" role="tab" class="rail-btn" data-floor="roof" aria-selected="false" aria-controls="panel-roof" id="tab-roof">Strecha</button>
+        <button type="button" role="tab" class="rail-btn" data-floor="5" aria-selected="false" aria-controls="panel-5" id="tab-5">5</button>
+        <button type="button" role="tab" class="rail-btn" data-floor="4" aria-selected="false" aria-controls="panel-4" id="tab-4">4</button>
+        <button type="button" role="tab" class="rail-btn is-on" data-floor="3" aria-selected="true" aria-controls="panel-3" id="tab-3">3</button>
+        <button type="button" role="tab" class="rail-btn" data-floor="2" aria-selected="false" aria-controls="panel-2" id="tab-2">2</button>
+        <button type="button" role="tab" class="rail-btn" data-floor="1" aria-selected="false" aria-controls="panel-1" id="tab-1">1</button>
+      </div>
 
-            <div class="floor-panels">
-              <article
-                class="floor-panel"
-                id="panel-roof"
-                role="tabpanel"
-                aria-labelledby="tab-roof"
-                hidden
-              >
-                <p class="floor-num">Strecha</p>
-                <h3>Strešná záhrada</h3>
-                <p>
-                  Vonkajšia zelená terasa nad celou vežou — bylinky, relax,
-                  výhľad dole do átria aj do mesta.
-                </p>
-                <ul>
-                  <li>Záhrada a oddychové miesta</li>
-                  <li>Bylinky a zelené plochy</li>
-                  <li>Výhľad cez dieru v strede budovy</li>
-                </ul>
-              </article>
+      <div class="explore-stage">
+        <article class="panel" id="panel-roof" role="tabpanel" aria-labelledby="tab-roof" hidden data-tone="roof">
+          <p class="num">Strecha</p>
+          <h2>Strešná záhrada</h2>
+          <p class="txt">Zeleň hore nad celou vežou. Oddych, bylinky, výhľad do átria.</p>
+          <ul>
+            <li>Záhrada</li>
+            <li>Oddych</li>
+            <li>Výhľad dolu dierou</li>
+          </ul>
+        </article>
 
-              <article
-                class="floor-panel"
-                id="panel-5"
-                role="tabpanel"
-                aria-labelledby="tab-5"
-                hidden
-              >
-                <p class="floor-num">5. poschodie</p>
-                <h3>Zážitok &amp; ľudia</h3>
-                <p>
-                  Horné poschodie je o stretnutí — jedlo, zvieratá, spoločnosť.
-                </p>
-                <ul>
-                  <li>MačKafé</li>
-                  <li>Reštaurácie</li>
-                  <li>Miesta na stretnutie a oddych</li>
-                </ul>
-              </article>
+        <article class="panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden data-tone="5">
+          <p class="num">05</p>
+          <h2>MačKafé &amp; reštaurácie</h2>
+          <p class="txt">Horné poschodie je o stretnutí — jedlo, mačky, ľudia.</p>
+          <ul>
+            <li>MačKafé</li>
+            <li>Reštaurácie</li>
+            <li>Spoločné stoly</li>
+          </ul>
+        </article>
 
-              <article
-                class="floor-panel"
-                id="panel-4"
-                role="tabpanel"
-                aria-labelledby="tab-4"
-                hidden
-              >
-                <p class="floor-num">4. poschodie</p>
-                <h3>Potraviny</h3>
-                <p>
-                  Domácnosť a nákup na jeden deň — čerstvé veci, rýchle
-                  vyzdvihnutie, menej plytvania.
-                </p>
-                <ul>
-                  <li>Potraviny a market</li>
-                  <li>Čerstvé a lokálne produkty</li>
-                  <li>Výdaj objednávok pri átriu</li>
-                </ul>
-              </article>
+        <article class="panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden data-tone="4">
+          <p class="num">04</p>
+          <h2>Potraviny</h2>
+          <p class="txt">Market okolo átria. Čerstvé veci, rýchle vyzdvihnutie.</p>
+          <ul>
+            <li>Potraviny</li>
+            <li>Lokálne produkty</li>
+            <li>Výdaj objednávok</li>
+          </ul>
+        </article>
 
-              <article
-                class="floor-panel is-active"
-                id="panel-3"
-                role="tabpanel"
-                aria-labelledby="tab-3"
-              >
-                <p class="floor-num">3. poschodie</p>
-                <h3>Oblečenie</h3>
-                <p>
-                  Móda okolo dokola — skúšanie, štýl a doplnky v kruhu okolo
-                  otvoreného stredu.
-                </p>
-                <ul>
-                  <li>Oblečenie a topánky</li>
-                  <li>Doplnky</li>
-                  <li>Skúšacie zóny</li>
-                </ul>
-              </article>
+        <article class="panel is-on" id="panel-3" role="tabpanel" aria-labelledby="tab-3" data-tone="3">
+          <p class="num">03</p>
+          <h2>Oblečenie</h2>
+          <p class="txt">Móda do kruhu. Skúšačky, topánky, doplnky — vždy vieš, kde je stred.</p>
+          <ul>
+            <li>Oblečenie</li>
+            <li>Topánky</li>
+            <li>Skúšacie zóny</li>
+          </ul>
+        </article>
 
-              <article
-                class="floor-panel"
-                id="panel-2"
-                role="tabpanel"
-                aria-labelledby="tab-2"
-                hidden
-              >
-                <p class="floor-num">2. poschodie</p>
-                <h3>Telo &amp; pohyb</h3>
-                <p>
-                  Fitko a pri ňom 2v1 priestor — cez deň aula, večer kino.
-                </p>
-                <ul>
-                  <li>Fitnescentrum</li>
-                  <li>Kino + aula (2v1)</li>
-                  <li>Šatne a regenerácia</li>
-                </ul>
-              </article>
+        <article class="panel" id="panel-2" role="tabpanel" aria-labelledby="tab-2" hidden data-tone="2">
+          <p class="num">02</p>
+          <h2>Fitko + kino/aula</h2>
+          <p class="txt">Pohyb a 2v1 sála — cez deň prednášky, večer film.</p>
+          <ul>
+            <li>Fitnes</li>
+            <li>Kino + aula</li>
+            <li>Šatne</li>
+          </ul>
+        </article>
 
-              <article
-                class="floor-panel"
-                id="panel-1"
-                role="tabpanel"
-                aria-labelledby="tab-1"
-                hidden
-              >
-                <p class="floor-num">1. poschodie</p>
-                <h3>Nočný svet</h3>
-                <p>
-                  Spodok veže ožíva večer — bar, kasíno a nočná atmosféra.
-                </p>
-                <ul>
-                  <li>Bar</li>
-                  <li>Kasíno</li>
-                  <li>Večerná zóna</li>
-                </ul>
-              </article>
-            </div>
-          </div>
-        </section>
+        <article class="panel" id="panel-1" role="tabpanel" aria-labelledby="tab-1" hidden data-tone="1">
+          <p class="num">01</p>
+          <h2>Bar &amp; kasíno</h2>
+          <p class="txt">Spodok veže ožíva večer. Svetlá dole, átrium hore.</p>
+          <ul>
+            <li>Bar</li>
+            <li>Kasíno</li>
+            <li>Nočná zóna</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-        <section class="concept" aria-labelledby="concept-title">
-          <div class="section-head">
-            <h2 id="concept-title">Prečo rolka?</h2>
-            <p>
-              Budova má tvar rolky toaletného papiera — valec s dierou v strede.
-            </p>
-          </div>
-          <div class="concept-grid">
-            <div>
-              <h3>Átrium</h3>
-              <p>
-                Otvorený stred spája všetky poschodia. Svetlo ide zhora, ľudia
-                vidia dolu aj hore, tovar a výťahy idú cez stred.
-              </p>
-            </div>
-            <div>
-              <h3>Kruhový nákup</h3>
-              <p>
-                Predajne sú dookola. Nemusíš blúdiť chodbami — vždy vieš, kde si
-                voči stredu.
-              </p>
-            </div>
-            <div>
-              <h3>Viac než obchod</h3>
-              <p>
-                Jedlo, pohyb, zábava, záhrada. Prídeš nakúpiť a ostaneš na celý
-                deň.
-              </p>
-            </div>
-          </div>
-        </section>
+    <section class="strip" id="maketa">
+      <h2>Maketa</h2>
+      <p>Fyzický model rolky — fotky sem neskôr.</p>
+      <div class="hole-box"></div>
+    </section>
 
-        <section id="maketa" class="maketa" aria-labelledby="maketa-title">
-          <div class="section-head">
-            <h2 id="maketa-title">Maketa</h2>
-            <p>Fyzický model veže — fotky doplníme neskôr.</p>
-          </div>
-          <div class="maketa-frame" aria-hidden="true">
-            <span>Miesto na fotky makety</span>
-          </div>
-        </section>
+    <section class="facts" id="karta">
+      <h2>Projekt</h2>
+      <div class="fact">
+        <span>Myšlienka</span>
+        <p>Veža ako rolka toaletného papiera: nákup, zážitok a záhrada okolo jednej diery.</p>
+      </div>
+      <div class="fact">
+        <span>Rieši</span>
+        <p>Labyrint bežného centra. Tu máš stred, poschodia podľa nálady, všetko na očiach.</p>
+      </div>
+      <div class="fact">
+        <span>Tím</span>
+        <p>Doplníme</p>
+      </div>
+    </section>
 
-        <section id="karta" class="karta" aria-labelledby="karta-title">
-          <div class="section-head">
-            <h2 id="karta-title">Projektová karta</h2>
-            <p>Stručne o projekte — doplníme mená a detaily.</p>
-          </div>
-          <dl class="karta-list">
-            <div>
-              <dt>Názov</dt>
-              <dd>moderný obchod</dd>
-            </div>
-            <div>
-              <dt>Hlavná myšlienka</dt>
-              <dd>
-                Päťposchodové nákupné centrum v tvare rolky s otvoreným átriom —
-                nákup, zážitok aj oddych na jednom mieste.
-              </dd>
-            </div>
-            <div>
-              <dt>Čo rieši</dt>
-              <dd>
-                Klasické nákupné centrá sú labyrint. My dáme jasný stred, kruhové
-                poschodia a zóny podľa toho, čo chceš robiť.
-              </dd>
-            </div>
-            <div>
-              <dt>Prínos</dt>
-              <dd>
-                Obchod budúcnosti nie je len regál — je to miesto, kde sa stretáva
-                nákup, šport, kultúra, jedlo a príroda na streche.
-              </dd>
-            </div>
-            <div>
-              <dt>Tím</dt>
-              <dd>Doplníme</dd>
-            </div>
-          </dl>
-        </section>
-      </main>
+    <footer class="end">
+      <p>moderný obchod · Obchod budúcnosti</p>
+    </footer>
 
-      <footer class="site-footer">
-        <p>moderný obchod · súťaž Obchod budúcnosti</p>
-      </footer>
-    </div>
     <script src="script.js"></script>
   </body>
 </html>
