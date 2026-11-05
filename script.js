@@ -1,20 +1,15 @@
 (function () {
-  const bands = Array.from(document.querySelectorAll(".band[data-floor]"));
-  const tabs = Array.from(document.querySelectorAll(".callout"));
+  const tabs = Array.from(document.querySelectorAll(".cell[data-room]"));
   const panels = Array.from(document.querySelectorAll(".panel"));
 
   if (!tabs.length) return;
 
-  function showFloor(id) {
+  function showRoom(id) {
     tabs.forEach((tab) => {
-      const on = tab.dataset.floor === id;
+      const on = tab.dataset.room === id;
       tab.classList.toggle("is-on", on);
       tab.setAttribute("aria-selected", on ? "true" : "false");
       tab.tabIndex = on ? 0 : -1;
-    });
-
-    bands.forEach((band) => {
-      band.classList.toggle("is-on", band.dataset.floor === id);
     });
 
     panels.forEach((panel) => {
@@ -24,12 +19,8 @@
     });
   }
 
-  bands.forEach((band) => {
-    band.addEventListener("click", () => showFloor(band.dataset.floor));
-  });
-
   tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => showFloor(tab.dataset.floor));
+    tab.addEventListener("click", () => showRoom(tab.dataset.room));
 
     tab.addEventListener("keydown", (event) => {
       let next = null;
@@ -45,9 +36,9 @@
       if (!next) return;
       event.preventDefault();
       next.focus();
-      showFloor(next.dataset.floor);
+      showRoom(next.dataset.room);
     });
   });
 
-  showFloor("3");
+  showRoom("oblecenie");
 })();
