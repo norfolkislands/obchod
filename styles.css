@@ -1,9 +1,13 @@
 :root {
   --ink: #1a1f1c;
+  --muted: #4a524c;
   --paper: #e8ebe4;
   --wash: #d2d8cf;
   --line: #b7bfb4;
   --accent: #2f5d4a;
+  --accent-soft: #d8e4dc;
+  --frame: #c5ccc0;
+  --max: 68rem;
 }
 
 *,
@@ -12,57 +16,352 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
+  min-height: 100%;
   color: var(--ink);
   font-family: "Schibsted Grotesk", "Segoe UI", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
   background:
     radial-gradient(120% 80% at 10% -10%, #f4f6f1 0%, transparent 55%),
     radial-gradient(90% 70% at 100% 100%, #c9d2c6 0%, transparent 50%),
     linear-gradient(160deg, var(--paper), var(--wash));
-  min-height: 100%;
 }
 
 .page {
-  min-height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  padding: clamp(1.25rem, 4vw, 2.5rem);
+  width: min(100% - 2rem, var(--max));
+  margin-inline: auto;
+  padding-block: clamp(1.25rem, 4vw, 2.5rem) 3rem;
 }
 
-.brand {
+.site-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
 }
 
 .brand-mark {
   margin: 0;
-  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--ink);
 }
 
 .brand-mark::after {
   content: "";
   display: inline-block;
-  width: 0.55em;
-  height: 0.55em;
-  margin-left: 0.35em;
+  width: 0.5em;
+  height: 0.5em;
+  margin-left: 0.3em;
   border-radius: 2px;
   background: var(--accent);
-  vertical-align: 0.12em;
+  vertical-align: 0.08em;
 }
 
-.stage {
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.25rem;
+}
+
+.nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--ink);
+}
+
+.hero {
+  padding-block: clamp(2.5rem, 8vw, 5rem) clamp(2rem, 6vw, 3.5rem);
+  max-width: 38rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 6vw, 3.35rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.lede {
+  margin: 0;
+  font-size: clamp(1.05rem, 2.2vw, 1.2rem);
+  color: var(--muted);
+  max-width: 32rem;
+}
+
+.section-head {
+  max-width: 36rem;
+  margin-bottom: 1.75rem;
+}
+
+.section-head h2 {
+  margin: 0 0 0.4rem;
+  font-size: clamp(1.45rem, 3vw, 1.85rem);
+  letter-spacing: -0.03em;
+}
+
+.section-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.floors,
+.concept,
+.maketa,
+.karta {
+  padding-block: clamp(2rem, 5vw, 3.25rem);
   border-top: 1px solid var(--line);
-  margin-top: clamp(1.5rem, 5vw, 3rem);
-  min-height: 40vh;
+}
+
+.floors-layout {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 760px) {
+  .floors-layout {
+    grid-template-columns: minmax(10rem, 14rem) 1fr;
+    gap: 3rem;
+  }
+}
+
+.tower {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0.85rem;
+  background: color-mix(in srgb, white 45%, transparent);
+  border: 1px solid var(--line);
+}
+
+.tower-level {
+  appearance: none;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.35rem 0.4rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: var(--muted);
+  text-align: left;
+}
+
+.tower-ring {
+  display: block;
+  height: 2.35rem;
+  border: 3px solid currentColor;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center, transparent 28%, currentColor 29% 31%, transparent 32%);
+  opacity: 0.55;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.tower-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  min-width: 3.5rem;
+}
+
+.tower-level:hover .tower-ring,
+.tower-level:focus-visible .tower-ring {
+  opacity: 0.85;
+}
+
+.tower-level.is-active {
+  color: var(--accent);
+}
+
+.tower-level.is-active .tower-ring {
+  opacity: 1;
+  transform: scale(1.03);
+  background-color: var(--accent-soft);
+}
+
+.tower-level:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.floor-panels {
+  min-height: 16rem;
+}
+
+.floor-panel {
+  animation: fade-in 220ms ease;
+}
+
+.floor-panel[hidden] {
+  display: none;
+}
+
+.floor-num {
+  margin: 0 0 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.floor-panel h3 {
+  margin: 0 0 0.65rem;
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  letter-spacing: -0.03em;
+}
+
+.floor-panel > p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  max-width: 34rem;
+}
+
+.floor-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.floor-panel li {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.floor-panel li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: var(--accent);
+}
+
+.concept-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 700px) {
+  .concept-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+.concept-grid h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.concept-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.maketa-frame {
+  display: grid;
+  place-items: center;
+  min-height: clamp(12rem, 35vw, 20rem);
+  border: 1px dashed var(--frame);
+  background: color-mix(in srgb, white 35%, transparent);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.karta-list {
+  margin: 0;
+  display: grid;
+  gap: 1.15rem;
+  max-width: 40rem;
+}
+
+.karta-list div {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.karta-list dt {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.karta-list dd {
+  margin: 0;
+}
+
+.site-footer {
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .floor-panel,
+  .tower-ring {
+    animation: none;
+    transition: none;
+  }
 }
