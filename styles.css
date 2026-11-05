@@ -1,0 +1,68 @@
+:root {
+  --ink: #1a1f1c;
+  --paper: #e8ebe4;
+  --wash: #d2d8cf;
+  --line: #b7bfb4;
+  --accent: #2f5d4a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: var(--ink);
+  font-family: "Schibsted Grotesk", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(120% 80% at 10% -10%, #f4f6f1 0%, transparent 55%),
+    radial-gradient(90% 70% at 100% 100%, #c9d2c6 0%, transparent 50%),
+    linear-gradient(160deg, var(--paper), var(--wash));
+  min-height: 100%;
+}
+
+.page {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.brand-mark {
+  margin: 0;
+  font-size: clamp(1.75rem, 4.5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.brand-mark::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.55em;
+  margin-left: 0.35em;
+  border-radius: 2px;
+  background: var(--accent);
+  vertical-align: 0.12em;
+}
+
+.stage {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(1.5rem, 5vw, 3rem);
+  min-height: 40vh;
+}
