@@ -1,14 +1,8 @@
 (function () {
-  const tabs = Array.from(document.querySelectorAll(".rail-btn"));
+  const hits = Array.from(document.querySelectorAll(".floor-hit[data-floor]"));
+  const tabs = hits.filter((el) => el.getAttribute("role") === "tab");
   const panels = Array.from(document.querySelectorAll(".panel"));
-  const rings = {
-    roof: document.querySelector(".r-roof"),
-    5: document.querySelector(".r5"),
-    4: document.querySelector(".r4"),
-    3: document.querySelector(".r3"),
-    2: document.querySelector(".r2"),
-    1: document.querySelector(".r1"),
-  };
+  const labels = Array.from(document.querySelectorAll(".label"));
 
   if (!tabs.length) return;
 
@@ -20,22 +14,32 @@
       tab.tabIndex = on ? 0 : -1;
     });
 
+    hits.forEach((hit) => {
+      hit.classList.toggle("is-on", hit.dataset.floor === id);
+    });
+
+    labels.forEach((label) => {
+      label.classList.toggle("is-on", label.dataset.floor === id);
+    });
+
     panels.forEach((panel) => {
       const on = panel.id === `panel-${id}`;
       panel.classList.toggle("is-on", on);
       panel.hidden = !on;
     });
-
-    Object.entries(rings).forEach(([key, el]) => {
-      if (!el) return;
-      el.style.transform = key === String(id) ? "scaleX(1.06)" : "scaleX(1)";
-      el.style.filter = key === String(id) ? "brightness(1.08)" : "none";
-    });
   }
 
-  tabs.forEach((tab, index) => {
-    tab.addEventListener("click", () => showFloor(tab.dataset.floor));
+  function onActivate(event) {
+    const floor = event.currentTarget.dataset.floor;
+    if (!floor) return;
+    showFloor(floor);
+  }
 
+  hits.forEach((hit) => {
+    hit.addEventListener("click", onActivate);
+  });
+
+  tabs.forEach((tab, index) => {
     tab.addEventListener("keydown", (event) => {
       let next = null;
       if (event.key === "ArrowDown" || event.key === "ArrowRight") {
@@ -46,6 +50,10 @@
         next = tabs[0];
       } else if (event.key === "End") {
         next = tabs[tabs.length - 1];
+      } else if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        showFloor(tab.dataset.floor);
+        return;
       }
       if (!next) return;
       event.preventDefault();
@@ -54,5 +62,6 @@
     });
   });
 
-  showFloor("3");
+  labels.forEach((label) => label.classList.toggle("is-on", label.dataset.floor === "1"));
+  showFloor("1");
 })();
