@@ -5,11 +5,14 @@
     4: "potraviny",
     3: "oblecenie",
     2: "fitko",
-    zem: "zem",
+    shaft: "schody",
+    out: "bicykle",
   };
 
   const bands = Array.from(document.querySelectorAll(".band[data-floor]"));
-  const tabs = Array.from(document.querySelectorAll(".cell[data-room]"));
+  const tabs = Array.from(
+    document.querySelectorAll(".cell[data-room], .bike-lot[data-room]")
+  );
   const panels = Array.from(document.querySelectorAll(".panel"));
 
   if (!tabs.length) return;
