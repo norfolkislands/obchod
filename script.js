@@ -5,8 +5,7 @@
     4: "potraviny",
     3: "oblecenie",
     2: "fitko",
-    1: "bar",
-    0: "toitoi",
+    zem: "zem",
   };
 
   const bands = Array.from(document.querySelectorAll(".band[data-floor]"));

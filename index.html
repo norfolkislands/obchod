@@ -31,26 +31,27 @@
       <div class="roll-wrap" aria-label="Rolka — poschodia">
         <svg class="roll-svg" viewBox="0 0 360 540" role="img" aria-labelledby="roll-title">
           <title id="roll-title">HAJZEL PAPIER — klikateľná rolka</title>
-          <ellipse cx="180" cy="505" rx="130" ry="16" fill="rgba(0,0,0,0.1)" />
+          <ellipse cx="180" cy="510" rx="130" ry="16" fill="rgba(0,0,0,0.1)" />
 
+          <!-- zem → hore: 4 poschodia + park -->
           <g class="bands">
-            <path class="band" data-floor="1" d="M50 415 V365 H310 V415 C310 445 252 470 180 470 C108 470 50 445 50 415 Z" fill="#2a3140" />
-            <path class="band" data-floor="2" d="M50 365 V305 H310 V365 C310 395 252 420 180 420 C108 420 50 395 50 365 Z" fill="#96a0aa" />
-            <path class="band" data-floor="3" d="M50 305 V245 H310 V305 C310 335 252 360 180 360 C108 360 50 335 50 305 Z" fill="#5f9bc8" />
-            <path class="band" data-floor="4" d="M50 245 V185 H310 V245 C310 275 252 300 180 300 C108 300 50 275 50 245 Z" fill="#e2c043" />
-            <path class="band" data-floor="5" d="M50 185 V125 H310 V185 C310 215 252 240 180 240 C108 240 50 215 50 185 Z" fill="#e39274" />
-            <path class="band" data-floor="park" d="M50 125 V85 H310 V125 C310 155 252 180 180 180 C108 180 50 155 50 125 Z" fill="#6f9458" />
+            <path class="band" data-floor="zem" d="M50 445 V405 H310 V445 C310 472 252 495 180 495 C108 495 50 472 50 445 Z" fill="#6b5344" />
+            <path class="band" data-floor="2" d="M50 405 V335 H310 V405 C310 432 252 455 180 455 C108 455 50 432 50 405 Z" fill="#96a0aa" />
+            <path class="band" data-floor="3" d="M50 335 V265 H310 V335 C310 362 252 385 180 385 C108 385 50 362 50 335 Z" fill="#5f9bc8" />
+            <path class="band" data-floor="4" d="M50 265 V195 H310 V265 C310 292 252 315 180 315 C108 315 50 292 50 265 Z" fill="#e2c043" />
+            <path class="band" data-floor="5" d="M50 195 V125 H310 V195 C310 222 252 245 180 245 C108 245 50 222 50 195 Z" fill="#e39274" />
+            <path class="band" data-floor="park" d="M50 125 V85 H310 V125 C310 152 252 175 180 175 C108 175 50 152 50 125 Z" fill="#6f9458" />
           </g>
 
           <g fill="none" stroke="#111" stroke-width="5" pointer-events="none">
-            <path d="M50 85 V415" />
-            <path d="M310 85 V415" />
-            <path d="M50 415 C50 445 108 470 180 470 C252 470 310 445 310 415" />
-            <path d="M50 365 C50 395 108 420 180 420 C252 420 310 395 310 365" />
-            <path d="M50 305 C50 335 108 360 180 360 C252 360 310 335 310 305" />
-            <path d="M50 245 C50 275 108 300 180 300 C252 300 310 275 310 245" />
-            <path d="M50 185 C50 215 108 240 180 240 C252 240 310 215 310 185" />
-            <path d="M50 125 C50 155 108 180 180 180 C252 180 310 155 310 125" />
+            <path d="M50 85 V445" />
+            <path d="M310 85 V445" />
+            <path d="M50 445 C50 472 108 495 180 495 C252 495 310 472 310 445" />
+            <path d="M50 405 C50 432 108 455 180 455 C252 455 310 432 310 405" />
+            <path d="M50 335 C50 362 108 385 180 385 C252 385 310 362 310 335" />
+            <path d="M50 265 C50 292 108 315 180 315 C252 315 310 292 310 265" />
+            <path d="M50 195 C50 222 108 245 180 245 C252 245 310 222 310 195" />
+            <path d="M50 125 C50 152 108 175 180 175 C252 175 310 152 310 125" />
           </g>
 
           <ellipse class="band lid" data-floor="park" cx="180" cy="85" rx="130" ry="42" fill="#81a86a" stroke="#111" stroke-width="5" />
@@ -62,7 +63,7 @@
       <div class="cut" role="tablist" aria-label="Miestnosti veže">
         <button type="button" class="cell park" role="tab" id="tab-park" data-room="park" data-floor="park" aria-selected="false" aria-controls="panel-park">eko-park ♥</button>
 
-        <button type="button" class="cell c-mackafe" role="tab" id="tab-mackafe" data-room="mackafe" data-floor="5" aria-selected="false" aria-controls="panel-mackafe">MačKafé</button>
+        <button type="button" class="cell c-mackafe" role="tab" id="tab-mackafe" data-room="mackafe" data-floor="5" aria-selected="false" aria-controls="panel-mackafe">MačKafé · Bar</button>
         <div class="shaft" aria-hidden="true"></div>
         <button type="button" class="cell c-resto" role="tab" id="tab-resto" data-room="resto" data-floor="5" aria-selected="false" aria-controls="panel-resto">Reštaurácie</button>
 
@@ -70,92 +71,82 @@
         <div class="shaft" aria-hidden="true"></div>
         <button type="button" class="cell c-pokladna" role="tab" id="tab-pokladna" data-room="pokladna" data-floor="4" aria-selected="false" aria-controls="panel-pokladna">Pokladňa</button>
 
-        <button type="button" class="cell c-oblecenie is-on" role="tab" id="tab-oblecenie" data-room="oblecenie" data-floor="3" aria-selected="true" aria-controls="panel-oblecenie">Oblečenie</button>
+        <button type="button" class="cell c-oblecenie is-on" role="tab" id="tab-oblecenie" data-room="oblecenie" data-floor="3" aria-selected="true" aria-controls="panel-oblecenie">Oblečenie + Salón</button>
         <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-salon" role="tab" id="tab-salon" data-room="salon" data-floor="3" aria-selected="false" aria-controls="panel-salon">Salón</button>
+        <button type="button" class="cell c-kasino" role="tab" id="tab-kasino" data-room="kasino" data-floor="3" aria-selected="false" aria-controls="panel-kasino">Kasíno</button>
 
         <button type="button" class="cell c-fitko" role="tab" id="tab-fitko" data-room="fitko" data-floor="2" aria-selected="false" aria-controls="panel-fitko">Fitko</button>
         <div class="shaft" aria-hidden="true"></div>
         <button type="button" class="cell c-sala" role="tab" id="tab-sala" data-room="sala" data-floor="2" aria-selected="false" aria-controls="panel-sala">Sála</button>
 
-        <button type="button" class="cell c-bar" role="tab" id="tab-bar" data-room="bar" data-floor="1" aria-selected="false" aria-controls="panel-bar">Bar</button>
-        <div class="shaft" aria-hidden="true"></div>
-        <button type="button" class="cell c-kasino" role="tab" id="tab-kasino" data-room="kasino" data-floor="1" aria-selected="false" aria-controls="panel-kasino">Kasíno</button>
-
-        <div class="void" aria-hidden="true"></div>
+        <button type="button" class="cell c-zem" role="tab" id="tab-zem" data-room="zem" data-floor="zem" aria-selected="false" aria-controls="panel-zem">Zem</button>
         <div class="shaft bottom" aria-hidden="true"></div>
-        <button type="button" class="cell c-toitoi" role="tab" id="tab-toitoi" data-room="toitoi" data-floor="0" aria-selected="false" aria-controls="panel-toitoi">Toi Toi</button>
+        <button type="button" class="cell c-toitoi" role="tab" id="tab-toitoi" data-room="toitoi" data-floor="zem" aria-selected="false" aria-controls="panel-toitoi">Toi Toi</button>
       </div>
 
       <div class="detail" aria-live="polite">
         <article class="panel" id="panel-park" role="tabpanel" aria-labelledby="tab-park" hidden>
           <p class="num" style="--c:#7fad5f">Strecha</p>
           <h2>eko-park</h2>
-          <p class="txt">Zelená strecha hore nad dierou. Oddych a výhľad dolu do átria.</p>
+          <p class="txt">Zelená strecha hore nad dierou. Oddych, zeleň a výhľad dolu do átria.</p>
         </article>
 
         <article class="panel" id="panel-mackafe" role="tabpanel" aria-labelledby="tab-mackafe" hidden>
-          <p class="num" style="--c:#e39274">5 · ľavá</p>
-          <h2>MačKafé</h2>
-          <p class="txt">Kaviareň s mačkami. Ľudia, káva, oddych na vrchnom poschodí.</p>
+          <p class="num" style="--c:#e39274">4 · ľavá</p>
+          <h2>MačKafé · Bar</h2>
+          <p class="txt">Káva s mačkami a bar pri nej. Cez deň pohoda, večer drink.</p>
         </article>
 
         <article class="panel" id="panel-resto" role="tabpanel" aria-labelledby="tab-resto" hidden>
-          <p class="num" style="--c:#d97b7b">5 · pravá</p>
+          <p class="num" style="--c:#d97b7b">4 · pravá</p>
           <h2>Reštaurácie</h2>
-          <p class="txt">Jedlo oproti MačKafé. Cez átrium vidíš na druhú stranu.</p>
+          <p class="txt">Jedlo oproti MačKafé a baru. Cez átrium vidíš na druhú stranu.</p>
         </article>
 
         <article class="panel" id="panel-potraviny" role="tabpanel" aria-labelledby="tab-potraviny" hidden>
-          <p class="num" style="--c:#e2c043">4 · ľavá</p>
+          <p class="num" style="--c:#e2c043">3 · ľavá</p>
           <h2>Potraviny</h2>
           <p class="txt">Market s potravinami — 100&nbsp;% sk. Čerstvé a lokálne.</p>
         </article>
 
         <article class="panel" id="panel-pokladna" role="tabpanel" aria-labelledby="tab-pokladna" hidden>
-          <p class="num" style="--c:#c9b24a">4 · pravá</p>
+          <p class="num" style="--c:#c9b24a">3 · pravá</p>
           <h2>Pokladňa</h2>
           <p class="txt">Platba oproti potravinám. Rýchly výstup z nákupu.</p>
         </article>
 
         <article class="panel is-on" id="panel-oblecenie" role="tabpanel" aria-labelledby="tab-oblecenie">
-          <p class="num" style="--c:#5f9bc8">3 · ľavá</p>
-          <h2>Oblečenie</h2>
-          <p class="txt">Móda a skúšačky. Oproti je salón.</p>
+          <p class="num" style="--c:#5f9bc8">2 · ľavá</p>
+          <h2>Oblečenie + Salón</h2>
+          <p class="txt">Móda, skúšačky a salón v jednej zóne. Oproti je kasíno.</p>
         </article>
 
-        <article class="panel" id="panel-salon" role="tabpanel" aria-labelledby="tab-salon" hidden>
-          <p class="num" style="--c:#8eb4d4">3 · pravá</p>
-          <h2>Salón</h2>
-          <p class="txt">Účesy a starostlivosť hneď pri oblečení.</p>
+        <article class="panel" id="panel-kasino" role="tabpanel" aria-labelledby="tab-kasino" hidden>
+          <p class="num" style="--c:#2a3140">2 · pravá</p>
+          <h2>Kasíno</h2>
+          <p class="txt">Hracie miesto oproti oblečeniu a salónu.</p>
         </article>
 
         <article class="panel" id="panel-fitko" role="tabpanel" aria-labelledby="tab-fitko" hidden>
-          <p class="num" style="--c:#96a0aa">2 · ľavá</p>
+          <p class="num" style="--c:#96a0aa">1 · ľavá</p>
           <h2>Fitko</h2>
           <p class="txt">Cvičenie a pohyb. Oproti je sála.</p>
         </article>
 
         <article class="panel" id="panel-sala" role="tabpanel" aria-labelledby="tab-sala" hidden>
-          <p class="num" style="--c:#7d8690">2 · pravá</p>
+          <p class="num" style="--c:#7d8690">1 · pravá</p>
           <h2>Sála</h2>
           <p class="txt">Kino + aula v jednom. Cez deň event, večer film.</p>
         </article>
 
-        <article class="panel" id="panel-bar" role="tabpanel" aria-labelledby="tab-bar" hidden>
-          <p class="num" style="--c:#3a4250">1 · ľavá</p>
-          <h2>Bar</h2>
-          <p class="txt">Spodok veže večer. Oproti kasíno.</p>
-        </article>
-
-        <article class="panel" id="panel-kasino" role="tabpanel" aria-labelledby="tab-kasino" hidden>
-          <p class="num" style="--c:#2a3140">1 · pravá</p>
-          <h2>Kasíno</h2>
-          <p class="txt">Nočná zóna na prízemí. Vedľa dole Toi Toi.</p>
+        <article class="panel" id="panel-zem" role="tabpanel" aria-labelledby="tab-zem" hidden>
+          <p class="num" style="--c:#6b5344">Zem</p>
+          <h2>Zem</h2>
+          <p class="txt">Spodok veže — vstup, okolie a pôda, na ktorej HAJZEL PAPIER stojí.</p>
         </article>
 
         <article class="panel" id="panel-toitoi" role="tabpanel" aria-labelledby="tab-toitoi" hidden>
-          <p class="num" style="--c:#b7a57a">vonku</p>
+          <p class="num" style="--c:#b7a57a">zem · vonku</p>
           <h2>Toi Toi</h2>
           <p class="txt">Áno. Aj toto patrí k HAJZEL PAPIER.</p>
         </article>
